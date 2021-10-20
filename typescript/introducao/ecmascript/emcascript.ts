@@ -92,3 +92,13 @@ const caract = ['Motor Zetec',2020]
 const [motor,ano] = caract
 console.log(motor)
 console.log(ano)
+
+//Destructuring (Object)
+const item: any = {
+    nome : 'SSD 980GB',
+    preco: 888
+}
+//definindo alias e chamando os dados do objeto
+const{nome:n, preco:p} = item
+console.log(n)
+console.log(p)

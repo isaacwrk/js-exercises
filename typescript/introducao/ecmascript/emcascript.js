@@ -93,3 +93,12 @@ var caract = ['Motor Zetec', 2020];
 var motor = caract[0], ano = caract[1];
 console.log(motor);
 console.log(ano);
+//Destructuring (Object)
+var item = {
+    nome: 'SSD 980GB',
+    preco: 888
+};
+//definindo alias e chamando os dados do objeto
+var n = item.nome, p = item.preco;
+console.log(n);
+console.log(p);
