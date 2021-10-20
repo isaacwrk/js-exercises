@@ -8,7 +8,7 @@ function esperar3s(callback) {
 esperar3s(function (resultado) {
     console.log(resultado);
 });
-//Convertendo para Promise -> necessita do motor ES6, alterar no tsconfig.json
+//Convertendo para Promise -> necessita do motor ES6, alterar no tsconfig.json, caso não tenha conseguido realizar a promise, usa-se o reject apra pegar o error
 function esperar3sPromise() {
     return new Promise((resolve) => {
         setTimeout(() => {
@@ -17,7 +17,7 @@ function esperar3sPromise() {
     });
 }
 esperar3sPromise().then(dado => console.log(dado));
-//Utilizando promise com chamada API
+//Utilizando promise com chamada API, transformando em json e pegando um único filme
 fetch('https://swapi.dev/api/people/1').then(res => res.json())
     .then(personagem => personagem.films)
     .then(films => fetch(films[0]))
