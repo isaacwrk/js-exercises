@@ -87,3 +87,9 @@ function tuplaParam2() {
     console.log("2) " + params[0] + " " + params[1] + "  " + params[2]);
 }
 tuplaParam2.apply(void 0, tupla);
+//Destructuring (array)
+var caract = ['Motor Zetec', 2020];
+// pega os dados e associa através do indice do array
+var motor = caract[0], ano = caract[1];
+console.log(motor);
+console.log(ano);

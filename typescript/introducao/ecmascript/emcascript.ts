@@ -84,3 +84,11 @@ function tuplaParam2(...params :[number,string,boolean]){
     console.log(`2) ${params[0]} ${params[1]}  ${params[2]}`)
 }
 tuplaParam2(...tupla)
+
+//Destructuring (array)
+const caract = ['Motor Zetec',2020]
+
+// pega os dados e associa através do indice do array
+const [motor,ano] = caract
+console.log(motor)
+console.log(ano)
