@@ -1,5 +1,4 @@
 "use strict";
-var _this = this;
 // let & const
 var seraQuePode = '?';
 console.log(seraQuePode);
@@ -26,17 +25,22 @@ var saudacao = function () { return console.log('Ola'); };
 saudacao();
 //em uma arrow function no typescript precisa passar os valores dentro do parentese
 var falarCom = function (pessoa) { return console.log('Ola ' + pessoa); };
-falarCom('João');
-//this
-function normalComThis() {
-    console.log(this);
-}
-//bind o que eu passar como parametro vai ser usado dentro da funcao como this
-var normalComThisEspecial = normalComThis.bind({ nome: 'eu' });
-normalComThisEspecial();
+falarCom('Isaac');
 //quem é o this neste ponto???
-console.log(this);
-var arrComThis = function () { return console.log(_this); };
-arrComThis();
-var arrowComthisEspecial = arrComThis.bind({ nome: 'euzinho' });
-arrowComthisEspecial();
+//console.log(this)
+//const arrComThis = () => console.log(this)
+//arrComThis()
+//const arrowComthisEspecial = arrComThis.bind({nome:'euzinho'})
+//arrowComthisEspecial()
+//parametros padrao
+function contagemRegressiva(inicio, fim) {
+    if (inicio === void 0) { inicio = 5; }
+    if (fim === void 0) { fim = inicio - 5; }
+    console.log(inicio);
+    while (inicio >= fim) {
+        inicio--;
+        console.log(inicio);
+    }
+    console.log("Fim!");
+}
+contagemRegressiva();

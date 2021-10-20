@@ -30,22 +30,23 @@ saudacao()
 
 //em uma arrow function no typescript precisa passar os valores dentro do parentese
 const falarCom = (pessoa:string) => console.log('Ola ' + pessoa)
-falarCom('João')
-
-//this
-
-function normalComThis(){
-    console.log(this)
-}
-
-//bind o que eu passar como parametro vai ser usado dentro da funcao como this
-const normalComThisEspecial = normalComThis.bind({nome:'eu'})
-normalComThisEspecial()
+falarCom('Isaac')
 
 //quem é o this neste ponto???
-console.log(this)
-const arrComThis = () => console.log(this)
-arrComThis()
+//console.log(this)
+//const arrComThis = () => console.log(this)
+//arrComThis()
 
-const arrowComthisEspecial = arrComThis.bind({nome:'euzinho'})
-arrowComthisEspecial()
+//const arrowComthisEspecial = arrComThis.bind({nome:'euzinho'})
+//arrowComthisEspecial()
+
+//parametros padrao
+function contagemRegressiva(inicio:number = 5, fim:number = inicio - 5):void{
+    console.log(inicio)
+    while(inicio >= fim){
+        inicio--
+        console.log(inicio)
+    }
+    console.log("Fim!")
+}
+contagemRegressiva()
