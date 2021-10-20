@@ -72,3 +72,18 @@ var numeros = retornaArray(1, 2, 4, 6, 7, 8, 623);
 console.log(numeros);
 //posso usar dados de outra função (linha 55) dentro da minha função criada retornaArray
 console.log(retornaArray.apply(void 0, numbers));
+//Rest & Spread para tuplas
+var tupla = [1, 'abc', false];
+function tuplaParam1(a, b, c) {
+    console.log("1) " + a + " " + b + " " + c);
+}
+tuplaParam1.apply(void 0, tupla);
+function tuplaParam2() {
+    var params = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        params[_i] = arguments[_i];
+    }
+    console.log(Array.isArray(params));
+    console.log("2) " + params[0] + " " + params[1] + "  " + params[2]);
+}
+tuplaParam2.apply(void 0, tupla);
