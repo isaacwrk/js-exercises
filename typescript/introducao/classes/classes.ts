@@ -75,3 +75,36 @@ class ProdutoD{
 
 const prod1 = new ProdutoD('Motog',900,0.2)
 console.log(prod1.resumo())
+
+
+//Modificadores de acesso
+class Carro {
+    private velocidadeAtual:number = 0
+    constructor(public marca:string,
+        public modelo:string,
+        private velocidadeMaxima:number = 200){  
+    }
+
+    private alterarVelocidade(delta:number):any{
+        const novaVelocidade = this.velocidadeAtual + delta
+        const velocidadeValida = novaVelocidade >=0 && novaVelocidade <= this.velocidadeMaxima
+        if(velocidadeValida){
+            this.velocidadeAtual = novaVelocidade
+        }else{
+            this.velocidadeAtual = delta > 0 ? this.velocidadeMaxima : 0 
+        }
+        return this.velocidadeAtual
+    }
+
+    public acelerar():number{
+        return this.alterarVelocidade(5)
+    }
+
+    public frear():number{
+        return this.alterarVelocidade(-5)
+    }
+}
+
+const carro1 = new Carro('Ford','Ka',185)
+Array(50).fill(0).forEach(()=>carro1.acelerar())
+console.log(carro1.acelerar)
