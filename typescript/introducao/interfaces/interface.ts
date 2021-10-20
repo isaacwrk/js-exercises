@@ -53,5 +53,26 @@ let potencia: FuncaoCalculo
 potencia = function(base:number,exp:number):number{
     return Math.pow(base,exp)
 }
-
 console.log(potencia(3,10))
+
+//Herança com interface
+interface A {
+    a():void
+}
+
+interface B{
+    b():void
+}
+
+interface ABC extends A, B{
+    c():void
+}
+
+class RealA implements A {
+    a(): void{}
+}
+
+class RealAB implements A,B{
+    a():void{}
+    b():void{}
+}
