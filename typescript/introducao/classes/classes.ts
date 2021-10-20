@@ -34,3 +34,19 @@ console.log(aniversarioEsperto)
 const casamentoEsperto = new DataEsperta //posso omitir os ()
 casamentoEsperto.ano = 2019
 console.log(casamentoEsperto)
+
+
+//Desafio Produto 
+//Atributos : nome, preco e desconto
+//Criar o construtor
+//Obs 1: Desconto é opcional(valor padrão 0)
+//Obs 2: Criar dois produtos: passando dois e tres params
+
+class Produto{
+    constructor(public nome:string, public preco:number, public desconto:number = 0){}
+}
+
+const meuProduto = new Produto('Iphone',4000)
+console.log(meuProduto)
+const meuProdutoDesconto = new Produto('Iphone C', 3000, 0.2)
+console.log(meuProdutoDesconto)
