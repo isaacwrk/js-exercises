@@ -1,3 +1,3 @@
 "use strict";
-var canal = 'Gaveta';
-var inscritos = 640405;
+let canal = 'Gaveta';
+let inscritos = 640405;
