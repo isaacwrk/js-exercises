@@ -1,5 +1,9 @@
 interface Humano{
     nome: String
+    idade?:number
+    //receber propriedade aleatoria
+    [prop: string]: any
+    saudar(sobrenome:string):void
 }
 
 function saudarComOla(pessoa: Humano){
@@ -10,11 +14,15 @@ function mudarNome(pessoa: Humano){
     pessoa.nome = 'Joana'
 }
 
-const pessoa = {
+const pessoa: Humano = {
     nome: 'João',
-    idade: 27
+    idade: 27,
+    saudar(sobrenome:string){
+        console.log('Olá meu nome é '+ this.nome  +' '+  sobrenome)
+    }
 }
 
 saudarComOla(pessoa)
 mudarNome(pessoa)
 saudarComOla(pessoa)
+pessoa.saudar('Zoro')
