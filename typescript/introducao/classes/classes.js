@@ -132,3 +132,20 @@ class Pessoa {
 const pessoa1 = new Pessoa;
 pessoa1.idade = 10;
 console.log(pessoa1);
+//Métodos e atributos estáticos -> quando nao há necessidade de estar instanciando em outro lugar
+class Matematica {
+    static areaCircunferencia(raio) {
+        return this.PI * raio * raio;
+    }
+}
+Matematica.PI = 3.1416;
+console.log(Matematica.areaCircunferencia(4));
+// Somente leitura 
+class Aviao {
+    constructor(modelo, prefixo) {
+        this.prefixo = prefixo;
+        this.modelo = modelo;
+    }
+}
+const turboHelice = new Aviao('Tu-114', 'PT-ABC');
+console.log(turboHelice);
