@@ -58,3 +58,14 @@ console.log(Math.max(...numbers))
 const turmaA: string[] = ['Joao','Maria','Fernando']
 const turmaB: string[] = ['Jo','Marcos','Jorge', ...turmaA]
 console.log(turmaB)
+
+/// ... rest recebe os dados do array
+function retornaArray(...args:number[]):number[]{
+    return args
+}
+
+//retornaArray vai jogar os dados para dentro de args
+const numeros = retornaArray(1,2,4,6,7,8,623)
+console.log(numeros)
+//posso usar dados de outra função (linha 55) dentro da minha função criada retornaArray
+console.log(retornaArray(...numbers))

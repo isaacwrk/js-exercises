@@ -59,3 +59,16 @@ console.log(Math.max.apply(Math, numbers));
 var turmaA = ['Joao', 'Maria', 'Fernando'];
 var turmaB = __spreadArray(['Jo', 'Marcos', 'Jorge'], turmaA, true);
 console.log(turmaB);
+/// ... rest recebe os dados do array
+function retornaArray() {
+    var args = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        args[_i] = arguments[_i];
+    }
+    return args;
+}
+//retornaArray vai jogar os dados para dentro de args
+var numeros = retornaArray(1, 2, 4, 6, 7, 8, 623);
+console.log(numeros);
+//posso usar dados de outra função (linha 55) dentro da minha função criada retornaArray
+console.log(retornaArray.apply(void 0, numbers));
