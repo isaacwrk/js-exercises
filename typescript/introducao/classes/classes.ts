@@ -111,16 +111,40 @@ console.log(carro1.acelerar)
 
 //heranças
 class Ferrari extends Carro{
-    //alterando metodos especificos para a herança ferrari lembrando que a classe pai precisa estar public | protected para herdar
+    /*alterando metodos especificos para a herança ferrari lembrando que a classe pai precisa estar public | protected para herdar
+    posso também criar um construitor especifico para essa herança mas preciso chamar o construtor original com super()
+    */
+    constructor(modelo:string, velocidadeMaxima:number){
+        super('Ferrari',modelo, velocidadeMaxima)
+    }
     public acelerar():number{
         return this.alterarVelocidade(20)
     }
 
     public frear():number{
-        return this.alterarVelocidade(-20)
+        return this.alterarVelocidade(-15)
     }
 }
 
-const f40 = new Ferrari('Ferrari', 'F40', 324)
+const f40 = new Ferrari('F40', 324)
 console.log(`${f40.marca} ${f40.modelo}`)
 console.log(f40.acelerar())
+
+//Getters & Setters
+class Pessoa{
+    private _idade: number = 0
+
+    get idade():number{
+        return this._idade
+    }
+
+    set idade(valor:number){
+        if(valor >= 0 && valor <= 120){
+            this._idade = valor
+        }
+    }
+}
+
+const pessoa1 = new Pessoa
+pessoa1.idade = 10
+console.log(pessoa1)
