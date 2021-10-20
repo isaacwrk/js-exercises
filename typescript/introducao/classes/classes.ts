@@ -85,7 +85,7 @@ class Carro {
         private velocidadeMaxima:number = 200){  
     }
 
-    private alterarVelocidade(delta:number):any{
+    protected alterarVelocidade(delta:number):any{
         const novaVelocidade = this.velocidadeAtual + delta
         const velocidadeValida = novaVelocidade >=0 && novaVelocidade <= this.velocidadeMaxima
         if(velocidadeValida){
@@ -108,3 +108,19 @@ class Carro {
 const carro1 = new Carro('Ford','Ka',185)
 Array(50).fill(0).forEach(()=>carro1.acelerar())
 console.log(carro1.acelerar)
+
+//heranças
+class Ferrari extends Carro{
+    //alterando metodos especificos para a herança ferrari lembrando que a classe pai precisa estar public | protected para herdar
+    public acelerar():number{
+        return this.alterarVelocidade(20)
+    }
+
+    public frear():number{
+        return this.alterarVelocidade(-20)
+    }
+}
+
+const f40 = new Ferrari('Ferrari', 'F40', 324)
+console.log(`${f40.marca} ${f40.modelo}`)
+console.log(f40.acelerar())

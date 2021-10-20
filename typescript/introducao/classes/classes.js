@@ -97,3 +97,16 @@ class Carro {
 const carro1 = new Carro('Ford', 'Ka', 185);
 Array(50).fill(0).forEach(() => carro1.acelerar());
 console.log(carro1.acelerar);
+//heranças
+class Ferrari extends Carro {
+    //alterando metodos especificos para a herança ferrari lembrando que a classe pai precisa estar public | protected para herdar
+    acelerar() {
+        return this.alterarVelocidade(20);
+    }
+    frear() {
+        return this.alterarVelocidade(-20);
+    }
+}
+const f40 = new Ferrari('Ferrari', 'F40', 324);
+console.log(`${f40.marca} ${f40.modelo}`);
+console.log(f40.acelerar());
