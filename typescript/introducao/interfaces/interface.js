@@ -16,3 +16,23 @@ saudarComOla(pessoa);
 mudarNome(pessoa);
 saudarComOla(pessoa);
 pessoa.saudar('Zoro');
+//usando Classes 
+class Cliente {
+    constructor() {
+        this.nome = '';
+        this.ultimaCompra = new Date;
+    }
+    saudar(sobrenome) {
+        console.log('Olá meu nome é ' + this.nome + ' ' + sobrenome);
+    }
+}
+const meuCliente = new Cliente();
+meuCliente.nome = 'Han';
+saudarComOla(meuCliente);
+meuCliente.saudar('Solo');
+console.log(meuCliente.ultimaCompra);
+let potencia;
+potencia = function (base, exp) {
+    return Math.pow(base, exp);
+};
+console.log(potencia(3, 10));
