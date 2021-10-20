@@ -96,9 +96,20 @@ console.log(ano);
 //Destructuring (Object)
 var item = {
     nome: 'SSD 980GB',
-    preco: 888
+    preco: 888,
+    caracteristicas: {
+        w: 'Importado'
+    }
 };
 //definindo alias e chamando os dados do objeto
-var n = item.nome, p = item.preco;
+var n = item.nome, p = item.preco, w = item.caracteristicas.w;
 console.log(n);
 console.log(p);
+console.log(w);
+//concatenando strings template
+var usuarioID = 'Admin ';
+var notificacoes = '68';
+//versão concatenando string
+//const boasVindas:string = 'Bem vindo ' + usuarioID + 'Notificações: ' + notificacoes
+var boasVindas = "\nBem-vindo " + usuarioID + ", Notifica\u00E7\u00F5es:" + (parseInt(notificacoes) > 9 ? '+9' : notificacoes) + "\n";
+console.log(boasVindas);

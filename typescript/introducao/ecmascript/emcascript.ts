@@ -96,9 +96,25 @@ console.log(ano)
 //Destructuring (Object)
 const item: any = {
     nome : 'SSD 980GB',
-    preco: 888
+    preco: 888,
+    caracteristicas:{
+        w:'Importado'
+    }
 }
 //definindo alias e chamando os dados do objeto
-const{nome:n, preco:p} = item
+const{nome:n, preco:p, caracteristicas:{ w }} = item
 console.log(n)
 console.log(p)
+console.log(w)
+
+//concatenando strings template
+
+const usuarioID:string = 'Admin '
+const notificacoes:string = '68'
+//versão concatenando string
+//const boasVindas:string = 'Bem vindo ' + usuarioID + 'Notificações: ' + notificacoes
+
+const boasVindas:string = `
+Bem-vindo ${usuarioID}, Notificações:${parseInt(notificacoes) > 9 ? '+9' : notificacoes}
+`
+console.log(boasVindas)
