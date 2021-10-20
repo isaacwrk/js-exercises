@@ -50,3 +50,11 @@ function contagemRegressiva(inicio:number = 5, fim:number = inicio - 5):void{
     console.log("Fim!")
 }
 contagemRegressiva()
+
+//Operador Spread e Rest
+const numbers:number[] = [1,10,99,-5,200,640]
+console.log(Math.max(...numbers))
+
+const turmaA: string[] = ['Joao','Maria','Fernando']
+const turmaB: string[] = ['Jo','Marcos','Jorge', ...turmaA]
+console.log(turmaB)
