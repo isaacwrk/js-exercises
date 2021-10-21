@@ -97,6 +97,35 @@ class ContaCorrente {
         return this.saldo;
     }
 }
+__decorate([
+    naoNegativo
+], ContaCorrente.prototype, "saldo", void 0);
+__decorate([
+    congelar
+], ContaCorrente.prototype, "getSaldo", null);
 const cc = new ContaCorrente(15478.90);
 cc.sacar(5000);
 console.log(cc.getSaldo());
+//Object.Freeze
+function congelar(alvo, nomePropriedade, descritor) {
+    console.log(alvo);
+    console.log(nomePropriedade);
+    descritor.writable = false;
+}
+//decorator de atributo para não permitir numero negativo
+function naoNegativo(alvo, nomePropriedade) {
+    delete alvo[nomePropriedade];
+    Object.defineProperty(alvo, nomePropriedade, {
+        get: function () {
+            return alvo['_' + nomePropriedade];
+        },
+        set: function (valor) {
+            if (valor < 0) {
+                throw new Error('Saldo Inválido');
+            }
+            else {
+                alvo['_' + nomePropriedade] = valor;
+            }
+        }
+    });
+}

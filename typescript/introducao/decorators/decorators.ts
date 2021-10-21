@@ -91,6 +91,7 @@ new MudancaAdministrativa().critico()
 
 //Decorator Metodo
 class ContaCorrente {
+    @naoNegativo
     private saldo: number
 
     constructor(saldo:number){
@@ -106,6 +107,7 @@ class ContaCorrente {
         }
     }
 
+    @congelar
     getSaldo(){
         return this.saldo
     }
@@ -114,3 +116,27 @@ class ContaCorrente {
 const cc = new ContaCorrente(15478.90)
 cc.sacar(5000)
 console.log(cc.getSaldo())
+
+//Object.Freeze
+function congelar(alvo:any, nomePropriedade:string, descritor:PropertyDescriptor){
+    console.log(alvo)
+    console.log(nomePropriedade)
+    descritor.writable = false
+}
+
+//decorator de atributo para não permitir numero negativo
+function naoNegativo(alvo: any, nomePropriedade: string){
+    delete alvo[nomePropriedade]
+    Object.defineProperty(alvo, nomePropriedade,{
+        get:function():any{
+            return alvo['_' + nomePropriedade]
+        },
+        set: function(valor:any):void{
+            if(valor < 0 ){
+                throw new Error('Saldo Inválido')
+            }else{
+                alvo['_' + nomePropriedade] = valor
+            }
+        }
+    })
+}
