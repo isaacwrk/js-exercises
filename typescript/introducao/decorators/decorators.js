@@ -79,3 +79,24 @@ function perfilAdmin(constructor) {
     };
 }
 new MudancaAdministrativa().critico();
+//Decorator Metodo
+class ContaCorrente {
+    constructor(saldo) {
+        this.saldo = saldo;
+    }
+    sacar(valor) {
+        if (valor <= this.saldo) {
+            this.saldo -= valor;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    getSaldo() {
+        return this.saldo;
+    }
+}
+const cc = new ContaCorrente(15478.90);
+cc.sacar(5000);
+console.log(cc.getSaldo());

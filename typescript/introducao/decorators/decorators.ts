@@ -88,3 +88,29 @@ function perfilAdmin<T extends Construtor>(constructor: T){
 }
  
 new MudancaAdministrativa().critico()
+
+//Decorator Metodo
+class ContaCorrente {
+    private saldo: number
+
+    constructor(saldo:number){
+        this.saldo = saldo
+    }
+
+    sacar(valor:number){
+        if(valor <= this.saldo){
+            this.saldo -= valor
+            return true
+        }else{
+            return false
+        }
+    }
+
+    getSaldo(){
+        return this.saldo
+    }
+}
+
+const cc = new ContaCorrente(15478.90)
+cc.sacar(5000)
+console.log(cc.getSaldo())
