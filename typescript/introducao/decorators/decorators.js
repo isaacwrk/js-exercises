@@ -6,15 +6,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 //@logarClasse
-let Eletrodomestico = class Eletrodomestico {
-    constructor() {
-        console.log('novo...');
-    }
-};
-Eletrodomestico = __decorate([
-    logarClasseSe(true),
-    decorator({ a: 'teste', b: 12 })
-], Eletrodomestico);
 function logarClasse(construtor) {
     console.log(construtor);
 }
@@ -23,8 +14,31 @@ function logarClasseSe(valor) {
     return valor ? logarClasse : decoratorVazio;
 }
 //factory
+//@decorator({a:'teste',b:12})
 function decorator(obj) {
     return function (constructor) {
         console.log(obj.a + ' ' + obj.b);
     };
 }
+let Eletrodomestico = class Eletrodomestico {
+    constructor() {
+        console.log('novo...');
+    }
+};
+Eletrodomestico = __decorate([
+    logarObjeto
+], Eletrodomestico);
+//função que retorna uma  uma subclasse da classe do construtor
+function logarObjeto(construtor) {
+    console.log('Carregado...');
+    return class extends construtor {
+        constructor(...args) {
+            console.log('Antes...');
+            super(...args);
+            console.log('Depois...');
+        }
+    };
+}
+new Eletrodomestico();
+new Eletrodomestico();
+new Eletrodomestico();
