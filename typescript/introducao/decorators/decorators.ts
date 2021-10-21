@@ -1,4 +1,6 @@
-@logarClasse
+//@logarClasse
+@logarClasseSe(true)
+@decorator({a:'teste',b:12})
 
 class Eletrodomestico {
     constructor(){
@@ -10,6 +12,15 @@ function logarClasse(construtor: Function){
     console.log(construtor)
 }
 
-new Eletrodomestico()
-new Eletrodomestico()
-new Eletrodomestico()
+function decoratorVazio(_:Function){}
+
+function logarClasseSe(valor:boolean){
+    return valor ? logarClasse : decoratorVazio
+}
+
+//factory
+function decorator(obj:{a:string, b?:number}){
+    return function(constructor: Function):void{
+        console.log(obj.a+' ' + obj.b)
+    }
+}
