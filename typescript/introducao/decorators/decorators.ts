@@ -24,10 +24,8 @@ class Eletrodomestico {
         console.log('novo...')
     }
 }
-
 //assinatura de construtor genérico
 type Construtor = {new(...args:any[]):{} }
-
 
 //função que retorna uma  uma subclasse da classe do construtor
 function logarObjeto(construtor: Construtor){
@@ -41,6 +39,24 @@ function logarObjeto(construtor: Construtor){
     }
 }
 
-new Eletrodomestico()
-new Eletrodomestico()
-new Eletrodomestico()
+
+//interface para reforçar os tipos
+interface Eletrodomestico2 {
+    imprimir?(): void
+}
+
+@imprimivel
+class Eletrodomestico2 {
+    constructor(){
+        console.log('novo...')
+    }
+}
+
+function imprimivel(construtor: Construtor){
+    construtor.prototype.imprimir = function(){
+        console.log(this)
+    }
+}
+
+const eletro = new Eletrodomestico2()
+eletro.imprimir && eletro.imprimir()

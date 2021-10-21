@@ -39,6 +39,18 @@ function logarObjeto(construtor) {
         }
     };
 }
-new Eletrodomestico();
-new Eletrodomestico();
-new Eletrodomestico();
+let Eletrodomestico2 = class Eletrodomestico2 {
+    constructor() {
+        console.log('novo...');
+    }
+};
+Eletrodomestico2 = __decorate([
+    imprimivel
+], Eletrodomestico2);
+function imprimivel(construtor) {
+    construtor.prototype.imprimir = function () {
+        console.log(this);
+    };
+}
+const eletro = new Eletrodomestico2();
+eletro.imprimir && eletro.imprimir();
